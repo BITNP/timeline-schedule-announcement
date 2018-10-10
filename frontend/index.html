@@ -8,12 +8,59 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="css/style.css">
     <title>Hello, world!</title>
 </head>
 
 <body>
     <h1>Hello, world!</h1>
+
+    <!-- <div class="container">
+        <div class="row">
+            <div class="card">
+                <div class="card-header">kjhkh</div>
+                <div class="card-body"> </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>
+    </div> -->
+
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- 指示符 -->
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+            <li data-target="#demo" data-slide-to="3"></li>
+            <li data-target="#demo" data-slide-to="4"></li>
+            <li data-target="#demo" data-slide-to="5"></li>
+        </ul>
+
+        <img src="" alt="">
+        <!-- 轮播图片 -->
+        <div class="carousel-inner" id="app1">
+
+            <div is="carousels" v-for="item in items" v-bind:key="item.id" v-bind:department="item.department"
+                v-bind:date="item.date" v-bind:time="item.time" v-bind:location="item.location" v-bind:description="item.description"
+                v-bind:requirement="item.requirement" class="carousel-item" :class="item.status"></div>
+            <!-- 'status', 'department', 'date', 'time', 'location', 'description', 'requirement' -->
+
+
+
+
+        </div>
+
+        <!-- 左右切换按钮 -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+        <img src="" alt="">
+    </div>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -23,6 +70,60 @@
         crossorigin="anonymous"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/vue.js"></script>
+    <script>
+        Vue.component('carousels', {
+            template: ' \
+                <div :class="status"> \
+                    <div class="bg"></div> \
+                    <div class="carousel-caption"> \
+                        <h3>部门:{{ department }}</h3> \
+                        <div>时间:{{ date }} - {{ time }}</div> \
+                        <div>地点:{{ location }}</div> \
+                        <div>主要内容: \
+                            <p>{{ description }}</p> \
+                        </div> \
+                        <div>要求: {{ requirement }} </div> \
+                    </div> \
+                </div> \
+                ',
+            props: ['status', 'department', 'date', 'time', 'location', 'description', 'requirement']
+        })
+        var app1 = new Vue({
+            el: '#app1',
+            data: {
+                items: [
+                    {
+                        id: 1,
+                        status: 'active',
+                        department: '组织部', date: 'date1', time: 'time2',
+                        location: 'locl', description: 'descripti2on', requirement: 'sdf'
+                    },
+                    {
+                        id: 2, status: '',
+                        department: '树莓', date: 'da123te1', time: 't123ime2',
+                        location: 'asdfzlocl', description: 'descripti2on12313', requirement: 's123123df'
+                    },
+                    {
+                        id: 3, status: '',
+                        department: '电脑诊所', date: 'da123te1', time: 't123ime2',
+                        location: 'asdfzlocl', description: 'descripti2on12313', requirement: 's123123df'
+                    },
+                    {
+                        id: 4, status: '',
+                        department: '网络部', date: 'da123te1', time: 't123ime2',
+                        location: 'asdfzlocl', description: 'descripti2on12313', requirement: 's123123df'
+                    },
+                    {
+                        id: 5, status: '',
+                        department: '技术部', date: 'da123te1', time: 't123ime2',
+                        location: 'asdfzlocl', description: 'descripti2on12313', requirement: 's123123df'
+                    },
+
+
+                ]
+            }
+        })
+    </script>
 </body>
 
 </html>

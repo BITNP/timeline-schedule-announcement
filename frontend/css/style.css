@@ -1,0 +1,28 @@
+.bg{
+    height:300px;
+    width:100%;
+}
+
+#app1>div:nth-child(1)>div.bg{
+    background:url(../images/wheat.png) repeat-x;
+}
+
+#app1>div:nth-child(2)>div.bg{
+    background:url(../images/folk-pattern-black.png) repeat-x;
+}
+
+#app1>div:nth-child(3)>div.bg{
+    background:url(../images/christmas-dark.png) repeat-x;
+}
+
+#app1>div:nth-child(4)>div.bg{
+    background:url(../images/connectwork.png) repeat-x;
+}
+
+#app1>div:nth-child(5)>div.bg{
+    background:url(../images/dark-grey-terrazzo.png) repeat-x;
+}
+
+#app1>div:nth-child(6)>div.bg{
+    background:url(../images/skyscraper.png) repeat-x;
+}
