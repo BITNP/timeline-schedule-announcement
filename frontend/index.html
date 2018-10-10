@@ -39,11 +39,26 @@
 
         <img src="" alt="">
         <!-- 轮播图片 -->
+
+
         <div class="carousel-inner" id="app1">
+
+            <div class="carousel-item active">
+                <div class="bg"></div>
+                <div class="carousel-caption">
+                    <h3>网络开拓者协会</h3>
+                    <div>时间: {{ date }} - {{ time }}</div>
+                    <div>地点: {{ location }}</div>
+                    <div>主要内容:
+                        <p>{{ description }}</p>
+                    </div>
+                    <div>要求: {{ requirement }} </div>
+                </div>
+            </div>
 
             <div is="carousels" v-for="item in items" v-bind:key="item.id" v-bind:department="item.department"
                 v-bind:date="item.date" v-bind:time="item.time" v-bind:location="item.location" v-bind:description="item.description"
-                v-bind:requirement="item.requirement" class="carousel-item" :class="item.status"></div>
+                v-bind:updatetime="item.updatetime" v-bind:requirement="item.requirement" class="carousel-item" :class="item.status"></div>
             <!-- 'status', 'department', 'date', 'time', 'location', 'description', 'requirement' -->
 
 
@@ -76,17 +91,18 @@
                 <div :class="status"> \
                     <div class="bg"></div> \
                     <div class="carousel-caption"> \
-                        <h3>部门:{{ department }}</h3> \
-                        <div>时间:{{ date }} - {{ time }}</div> \
-                        <div>地点:{{ location }}</div> \
+                        <h3>部门: {{ department }}</h3> \
+                        <div>时间: {{ date }} - {{ time }}</div> \
+                        <div>地点: {{ location }}</div> \
                         <div>主要内容: \
                             <p>{{ description }}</p> \
                         </div> \
                         <div>要求: {{ requirement }} </div> \
+                        <small>更新时间: {{ updatetime }} </small> \
                     </div> \
                 </div> \
                 ',
-            props: ['status', 'department', 'date', 'time', 'location', 'description', 'requirement']
+            props: ['status', 'department', 'date', 'time', 'location', 'description', 'requirement', 'updatetime']
         })
         var app1 = new Vue({
             el: '#app1',
@@ -94,29 +110,34 @@
                 items: [
                     {
                         id: 1,
-                        status: 'active',
+                        status: '',
                         department: '组织部', date: 'date1', time: 'time2',
-                        location: 'locl', description: 'descripti2on', requirement: 'sdf'
+                        location: 'locl', description: 'descripti2on',
+                        requirement: 'sdf', updatetime: 'time2'
                     },
                     {
                         id: 2, status: '',
                         department: '树莓', date: 'da123te1', time: 't123ime2',
-                        location: 'asdfzlocl', description: 'descripti2on12313', requirement: 's123123df'
+                        location: 'asdfzlocl', description: 'descripti2on12313',
+                        requirement: 's123123df', updatetime: 'time2'
                     },
                     {
                         id: 3, status: '',
                         department: '电脑诊所', date: 'da123te1', time: 't123ime2',
-                        location: 'asdfzlocl', description: 'descripti2on12313', requirement: 's123123df'
+                        location: 'asdfzlocl', description: 'descripti2on12313',
+                        requirement: 's123123df', updatetime: 'time2'
                     },
                     {
                         id: 4, status: '',
                         department: '网络部', date: 'da123te1', time: 't123ime2',
-                        location: 'asdfzlocl', description: 'descripti2on12313', requirement: 's123123df'
+                        location: 'asdfzlocl', description: 'loremasdfas asdf asf asdfdasd fasfdasf as fdaf asfd dasfdaf asfd dafdaf afdaf asfd dasfd dafdaf asfd dafdaf asfd dafdaf asfd dafdaf asfd dafasf asf dasf dasfd asf asfd asf d',
+                        requirement: 's123123df', updatetime: 'time2'
                     },
                     {
                         id: 5, status: '',
                         department: '技术部', date: 'da123te1', time: 't123ime2',
-                        location: 'asdfzlocl', description: 'descripti2on12313', requirement: 's123123df'
+                        location: 'asdfzlocl', description: 'descripti2on12313',
+                        requirement: 's123123df', updatetime: 'time2'
                     },
 
 
