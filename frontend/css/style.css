@@ -1,37 +1,55 @@
 .bg{
-    height:300px;
+    height:100%;
     width:100%;
 }
 
+#demo{
+    height: 91vh;
+}
+/* .carousel-indicators,
+.carousel-item,
+.carousel-inner{
+    height: 100%;
+} */
+.full-screen{
+    height:95vh;
+}
+.navbar-brand img{
+    height: 6vh;
+}
 .carousel-caption{
+    /* position: relative; */
+    /* top:-200px; */
     padding:20px;
-    height: 250px;
+    bottom: 30%;
+    min-height:300px;
+    max-width:70%;
     overflow: auto;
     border: 3px white solid;
 }
 
 #app1>div:nth-child(1)>div.bg{
-    background:url(../images/wheat.png) repeat-x;
+    background:url(../images/wheat.png) repeat;
 }
 
 #app1>div:nth-child(2)>div.bg{
-    background:url(../images/folk-pattern-black.png) repeat-x;
+    background:url(../images/folk-pattern-black.png) repeat;
 }
 
 #app1>div:nth-child(3)>div.bg{
-    background:url(../images/christmas-dark.png) repeat-x;
+    background:url(../images/christmas-dark.png) repeat;
 }
 
 #app1>div:nth-child(4)>div.bg{
-    background:url(../images/connectwork.png) repeat-x;
+    background:url(../images/connectwork.png) repeat;
 }
 
 #app1>div:nth-child(5)>div.bg{
-    background:url(../images/dark-grey-terrazzo.png) repeat-x;
+    background:url(../images/dark-grey-terrazzo.png) repeat;
 }
 
 #app1>div:nth-child(6)>div.bg{
-    background:url(../images/skyscraper.png) repeat-x;
+    background:url(../images/tex2res4.png) repeat;
 }
 
 
