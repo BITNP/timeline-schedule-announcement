@@ -16,26 +16,30 @@
     <!-- 
 Custom nvbar color 
 -->
-    <nav class="navbar navbar-expand-sm navbar-custom navbar-dark bg-dark">
-        <a href="www.bitnp.net" class="navbar-brand"><img src="images/bitnp-white.png" alt="logo of bitnp"></a>
-        <span class="nevbar-text">网络开拓者协会部门安排公告网页</span>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCustom">
-            <i class="fa fa-bars fa-lg py-1 text-white"></i>
+    <nav class="navbar navbar-expand-sm navbar-custom navbar-dark bg-dark  justify-content-between">
+        <a href="#" class="navbar-brand"><img src="images/bitnp-white.png" alt="logo of bitnp"></a>
+        <span class="nevbar-brand text-light mr-auto">网络开拓者协会 - 部门活动安排公告</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="navbar-collapse collapse" id="navbarCustom">
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                    <span class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        友情连接
-                </span>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="www.bitnp.net">网络开拓者协会首页</a>
-                        <a class="dropdown-item" href="live.bitnp.net">nplive直播(内网)</a>
-                    </div>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="http://www.bitnp.net">网协首页</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://live.bitnp.net">NPLive(内网)</a>
+                </li>
+                <!-- <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+              </li> -->
             </ul>
-            <span class="ml-auto navbar-text"></span>
+            <!-- <form class="form-inline my-2 my-lg-0"> -->
+            <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search"> -->
+            <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+            <!-- </form> -->
         </div>
     </nav>
 
@@ -60,24 +64,21 @@ Custom nvbar color
             <div class="carousel-item active h-100">
                 <div class="bg"></div>
                 <div class="carousel-caption">
-                    <h3>网络开拓者协会</h3>
-                    <div>时间: {{ date }} - {{ time }}</div>
-                    <div>地点: {{ location }}</div>
+                    <h3>{{overall.title}}</h3>
+                    <div class="c1">时间: {{ overall.date }} - {{ overall.time }}</div>
+                    <div class="c2">地点: {{ overall.location }}</div>
                     <div>主要内容:
-                        <p>{{ description }}</p>
+                        <p>{{ overall.description }}</p>
                     </div>
-                    <div>要求: {{ requirement }} </div>
+                    <div class="c3">要求: {{ overall.requirement }} </div>
                 </div>
             </div>
 
             <div is="carousels" v-for="item in items" v-bind:key="item.id" v-bind:department="item.department"
                 v-bind:date="item.date" v-bind:time="item.time" v-bind:location="item.location" v-bind:description="item.description"
-                v-bind:updatetime="item.updatetime" v-bind:requirement="item.requirement" 
-                class="carousel-item h-100" :class="item.status"></div>
+                v-bind:updatetime="item.updatetime" v-bind:requirement="item.requirement" class="carousel-item h-100"
+                :class="item.status"></div>
             <!-- 'status', 'department', 'date', 'time', 'location', 'description', 'requirement' -->
-
-
-
 
         </div>
 
@@ -89,7 +90,6 @@ Custom nvbar color
             <span class="carousel-control-next-icon"></span>
         </a>
     </div>
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -105,14 +105,14 @@ Custom nvbar color
                 <div :class="status"> \
                     <div class="bg"></div> \
                     <div class="carousel-caption"> \
-                        <h3>部门: {{ department }}</h3> \
-                        <div>时间: {{ date }} - {{ time }}</div> \
-                        <div>地点: {{ location }}</div> \
+                        <h3>部门:  {{ department }}</h3> \
+                        <div class="c1">时间:  {{ date }} - {{ time }}</div> \
+                        <div class="c2">地点:  {{ location }}</div> \
                         <div>主要内容: \
-                            <p>{{ description }}</p> \
+                            <p>{{ description || "暂无活动" }}</p> \
                         </div> \
-                        <div>要求: {{ requirement }} </div> \
-                        <small>更新时间: {{ updatetime }} </small> \
+                        <div class="c3">要求:  {{ requirement || "暂无要求" }} </div> \
+                        <small>更新时间:  {{ updatetime }} </small> \
                     </div> \
                 </div> \
                 ',
@@ -121,41 +121,60 @@ Custom nvbar color
         var app1 = new Vue({
             el: '#app1',
             data: {
+                overall: {
+                    status: '',
+                    title: '网络开拓者协会 全体大会', date: '2018-10-17', time: '21:00开始',
+                    location: '图书馆音乐厅', description: '全体大会',
+                    requirement: '无', updatetime: '2018-10-12 23:52:07'
+                }
+                ,
                 items: [
                     {
                         id: 1,
                         status: '',
-                        department: '组织部', date: '2018-10-12', time: '12:40',
-                        location: '理教301', description: '例会',
-                        requirement: '无', updatetime: '2018-10-12 23:52:07'
+                        department: '组织部', date: '', time: '',
+                        location: '', description: '',
+                        requirement: '', updatetime: ''
                     },
                     {
                         id: 2, status: '',
-                        department: '树莓', date: 'asdf', time: 't123ime2',
-                        location: 'asdfzlocl', description: 'descripti2on12313',
-                        requirement: 's123123df', updatetime: 'time2'
+                        department: '树莓', date: '', time: '',
+                        location: '', description: '',
+                        requirement: '', updatetime: ''
                     },
                     {
                         id: 3, status: '',
-                        department: '电脑诊所', date: 'da123te1', time: 't123ime2',
-                        location: 'asdfzlocl', description: 'descripti2on12313',
-                        requirement: 's123123df', updatetime: 'time2'
+                        department: '电脑诊所', date: '每周一~周五', time: '19:30-21:00',
+                        location: '图书馆311G', description: '电脑维修服务',
+                        requirement: '无', updatetime: '2018-10-13 15:57:25'
                     },
                     {
                         id: 4, status: '',
-                        department: '网络部', date: 'da123te1', time: 't123ime2',
-                        location: 'asdfzlocl', description: 'loremasdfas asdf asf asdfdasd fasfdasf as fdaf asfd dasfdaf asfd dafdaf afdaf asfd dasfd dafdaf asfd dafdaf asfd dafdaf asfd dafdaf asfd dafasf asf dasf dasfd asf asfd asf d',
-                        requirement: 's123123df', updatetime: 'time2'
+                        department: '网络部', date: '', time: '',
+                        location: '', description: '',
+                        requirement: '', updatetime: ''
                     },
                     {
                         id: 5, status: '',
-                        department: '技术部', date: 'da123te1', time: 't123ime2',
-                        location: 'asdfzlocl', description: 'descripti2on12313',
-                        requirement: 's123123df', updatetime: 'time2'
+                        department: '技术部', date: '2018-10-15', time: '21:00开始',
+                        location: '', description: '',
+                        requirement: '', updatetime: '2018-10-13 16:49:28'
                     },
 
 
                 ]
+            }
+        });
+
+        var app2 = new Vue({
+            el : "#app2",
+            data:{
+                intq:"i"
+            },
+            methods: {
+                randomInt: function () {
+                    return Math.random() * (20 - 2) + 2;
+                }
             }
         })
     </script>

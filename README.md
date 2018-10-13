@@ -6,7 +6,17 @@
 
 ## 目前的计划
 
-- [ ] bootstrap4 简单的活动计划展示
-  - [ ] 各部门介绍
-- [ ] Vue 作为前端框架,来解耦
+- [x] bootstrap4 简单的活动计划展示
+  - [x] 各部门介绍
+- [x] Vue 作为前端框架,来解耦
   - [ ] 定义接口数据格式
+
+## docker command
+```bash
+docker build -t "bitnp-timeline" .
+docker run -d --name timeline bitnp-timeline
+```
+or
+```bash
+docker run -d -p 10010:80 --name timeline -v "$PWD"/frontend:/var/www/html php:7.2-apache
+```

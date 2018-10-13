@@ -2,6 +2,18 @@
     height:100%;
     width:100%;
 }
+h3{
+    color: rgb(199, 171, 136);
+}
+.c1{
+    color: darkkhaki;
+}
+.c2{
+    color: rgb(160, 108, 108);
+}
+.c3{
+    color: rgb(91, 138, 91);
+}
 
 #demo{
     height: 91vh;
