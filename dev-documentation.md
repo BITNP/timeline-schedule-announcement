@@ -19,14 +19,24 @@ bootstrap4 轮播
 "updatetime": "2018-10-26 11:07:27"
 }
 ```
+### Info
 
 | 字段          | 类型      | 参数 | 含义 | 备注        |
 |-------------|---------|----|----|-----------|
 | id          | INTEGER |    |    |           |
+| status      | TEXT    |    |    |           |
 | name        | TEXT    |    |    | 只有五个值，见下方 |
 | department  | TEXT    |    |    |           |
 | time        | TEXT    |    |    |           |
 | location    | TEXT    |    |    |           |
 | description | TEXT    |    |    |           |
 | requirement | TEXT    |    |    |           |
-| updatetime  | TEXT    |    |    |           |
+| updatetime  | INTEGER |    |    |           |
+
+name 对应五个部门
+
+- `zhuzhi`
+- `shumei`
+- `wangluo`
+- `zhensuo`
+- `jishu`
