@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    
+
     <title>网协 - 部门活动安排</title>
 </head>
 
@@ -18,10 +18,14 @@
 Custom nvbar color 
 -->
     <nav class="navbar navbar-expand-sm navbar-custom navbar-dark bg-dark  justify-content-between">
+
         <a href="#" class="navbar-brand"><img src="images/bitnp-white.png" alt="logo of bitnp"></a>
+
         <span class="nevbar-brand text-light mr-auto">网络开拓者协会 - 部门活动安排公告</span>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -33,7 +37,7 @@ Custom nvbar color
                 <li class="nav-item">
                     <a class="nav-link" href="http://live.bitnp.net">NPLive(内网)</a>
                 </li>
-                
+
             </ul>
         </div>
     </nav>
@@ -61,15 +65,15 @@ Custom nvbar color
                 <div class="carousel-caption">
                     <h3>{{overall.title}}</h3>
                     <template v-if="overall.date||overall.time||overall.location||overall.description">
-                    <div class="c1">时间: {{ overall.date }} - {{ overall.time }}</div>
-                    <div class="c2">地点: {{ overall.location }}</div>
-                    <div>主要内容:
-                        <p>{{ overall.description }}</p>
-                        <div v-if="overall.description">hello</div>
-                    </div>
-                    <div class="c3">要求: {{ overall.requirement || "无" }} </div>
+                        <div class="c1">时间: {{ overall.date }} - {{ overall.time }}</div>
+                        <div class="c2">地点: {{ overall.location }}</div>
+                        <div>主要内容:
+                            <p>{{ overall.description }}</p>
+                            <div v-if="overall.description">hello</div>
+                        </div>
+                        <div class="c3">要求: {{ overall.requirement || "无" }} </div>
                     </template>
-                    <h2 class="c2" v-else><br> 还未安排下次活动<br><br> </h2>                    
+                    <h2 class="c2" v-else><br> 还未安排下次活动<br><br> </h2>
                     <small>更新时间: {{overall.updatetime}}</small>
                 </div>
             </div>
@@ -116,49 +120,78 @@ Custom nvbar color
                     </div> \
                 </div> \
                 ',
-            props: ['status', 'department', 'date', 'time', 'location', 'description', 'requirement', 'updatetime']
+            props: ['status', 'department', 'date', 'time', 'location', 'description', 'requirement',
+                'updatetime'
+            ]
         })
         var app1 = new Vue({
             el: '#app1',
             data: {
                 overall: {
                     status: '',
-                    title: '网络开拓者协会ޓ( ˚  ߜ˚) ރ 全体大会', date: '2018-11-4', time: '19:00-21:30',
-                    location: '综教报告厅', description: '',
-                    requirement: '', updatetime: '2018-10-30 20:31:15'
+                    title: '网络开拓者协会ޓ( ˚  ߜ˚) ރ 全体大会',
+                    date: '2018-11-4',
+                    time: '19:00-21:30',
+                    location: '综教报告厅',
+                    description: '',
+                    requirement: '',
+                    updatetime: '2018-10-30 20:31:15'
                 },
-                items: [
-                    {
+                items: [{
                         id: 1,
                         status: '',
-                        department: '组织部(๑ÒωÓ๑)', date: '', time: '',
-                        location: '',description:"",
-                        requirement: '', updatetime: '2018-11-12 20:31:39'
+                        department: '组织部(๑ÒωÓ๑)',
+                        date: '',
+                        time: '',
+                        location: '',
+                        description: "",
+                        requirement: '',
+                        updatetime: '2018-11-12 20:31:39'
                     },
-                    
+
                     {
-                        id: 2, status: '',
-                        department: '树莓ლ(╹◡╹ლ)', date: '', time: '',
-                        location: '', description: '',
-                        requirement: '', updatetime: '2018-11-12 20:14:04'
-                    },
-                    {
-                        id: 3, status: '',
-                        department: '电脑诊所 ヾ(๑╹◡╹)ﾉ', date: '每周一~周五', time: '18:30-21:00',
-                        location: '图书馆311G', description: '电脑维修服务',
-                        requirement: '有热心, 对电脑知识有一定了解', updatetime: '2018-10-15 17:34:50'
-                    },
-                    {
-                        id: 4, status: '',
-                        department: '网络部 _へ__(‾◡◝ )>', date: '', time: '',
-                        location: '', description: '',
-                        requirement: '', updatetime: '2018-11-12 18:01:24'
+                        id: 2,
+                        status: '',
+                        department: '树莓ლ(╹◡╹ლ)',
+                        date: '',
+                        time: '',
+                        location: '',
+                        description: '',
+                        requirement: '',
+                        updatetime: '2018-11-12 20:14:04'
                     },
                     {
-                        id: 5, status: '',
-                        department: '技术部٩(｡•ω<｡)و', date: '2018-11-12', time: '21:10',
-                        location: '2A-305', description: '搜索',
-                        requirement: '', updatetime: '2018-11-12 20:30:27'
+                        id: 3,
+                        status: '',
+                        department: '电脑诊所 ヾ(๑╹◡╹)ﾉ',
+                        date: '每周一~周五',
+                        time: '18:30-21:00',
+                        location: '图书馆311G',
+                        description: '电脑维修服务',
+                        requirement: '有热心, 对电脑知识有一定了解',
+                        updatetime: '2018-10-15 17:34:50'
+                    },
+                    {
+                        id: 4,
+                        status: '',
+                        department: '网络部 _へ__(‾◡◝ )>',
+                        date: '2018-11-14',
+                        time: '21:10-22:10',
+                        location: '2A-205',
+                        description: 'html实例讲解',
+                        requirement: '',
+                        updatetime: '2018-11-14 18:01:24'
+                    },
+                    {
+                        id: 5,
+                        status: '',
+                        department: '技术部٩(｡•ω<｡)و',
+                        date: '2018-11-12',
+                        time: '21:10',
+                        location: '2A-305',
+                        description: '搜索',
+                        requirement: '',
+                        updatetime: '2018-11-12 20:30:27'
                     },
 
 
@@ -167,9 +200,9 @@ Custom nvbar color
         });
 
         var app2 = new Vue({
-            el : "#app2",
-            data:{
-                intq:"i"
+            el: "#app2",
+            data: {
+                intq: "i"
             },
             methods: {
                 randomInt: function () {
